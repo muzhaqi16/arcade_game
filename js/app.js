@@ -45,7 +45,7 @@ class Player{
     this.sprite = 'images/char-boy.png';
     this.x = x;
     this.y=y;
-    this.speed=10;
+    this.speed=42.75;
   }
 
   // Update the enemy's position, required method for game
@@ -64,16 +64,24 @@ class Player{
       if(key){
         switch(key){
           case 'up':
-            this.y-=this.speed;
+            if(this.y>=0){
+              this.y-=this.speed;
+            }
             break;
           case 'down':
-            this.y+=this.speed;
+            if(this.y<ctx.canvas.height-171){
+              this.y+=this.speed;
+            }
             break;
           case 'left':
-            this.x-=this.speed;
+            if(this.x>=0){
+              this.x-=this.speed;
+            }
             break;
           case 'right':
-            this.x+=this.speed;
+            if(this.x<ctx.canvas.width-101){
+              this.x+=this.speed;
+            }
             break;
         }
       }
