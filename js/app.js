@@ -1,12 +1,14 @@
 // Enemies our player must avoid
 class Enemy{
-  constructor(){
+  constructor(x = 10,y=65){
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.x = x;
+    this.y=y;
   }
 
   // Update the enemy's position, required method for game
@@ -60,7 +62,7 @@ class Player{
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var allEnemies = [new Enemy()];
+var allEnemies = [new Enemy(10,65), new Enemy(10,145),new Enemy(10,230)];
 // add the players default location
 var player = new Player(200,400);
 
