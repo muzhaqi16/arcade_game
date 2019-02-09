@@ -28,13 +28,15 @@ class Enemy{
 // a handleInput() method.
 
 class Player{
-  constructor(){
+  constructor(x = 200,y=400){
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/char-boy.png';
+    this.x = x;
+    this.y=y;
   }
 
   // Update the enemy's position, required method for game
@@ -59,7 +61,8 @@ class Player{
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 var allEnemies = [new Enemy()];
-var player = new Player();
+// add the players default location
+var player = new Player(200,400);
 
 
 // This listens for key presses and sends the keys to your
