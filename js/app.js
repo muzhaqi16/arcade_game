@@ -34,7 +34,7 @@ class Player{
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.png';
+    this.sprite = 'images/char-boy.png';
   }
 
   // Update the enemy's position, required method for game
@@ -58,7 +58,8 @@ class Player{
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
+var allEnemies = [new Enemy()];
+var player = new Player();
 
 
 // This listens for key presses and sends the keys to your
