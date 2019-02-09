@@ -9,7 +9,7 @@ class Enemy{
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y=y;
-    this.speed = 40;
+    this.speed = this.getRandomSpeed();
   }
 
   // Update the enemy's position, required method for game
@@ -21,8 +21,11 @@ class Enemy{
       this.x+=this.speed*dt;
       if(this.x>ctx.canvas.width){
         this.x=0;
+        this.speed = this.getRandomSpeed();
       }
-
+  }
+  getRandomSpeed(min=40, max=200) {
+    return Math.random() * (max - min) + min;
   }
 
   // Draw the enemy on the screen, required method for game
