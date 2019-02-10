@@ -1,14 +1,12 @@
 // Enemies our player must avoid
 class Enemy{
   constructor(x = 10,y=65){
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
-    this.y=y;
+    this.y = y;
     this.speed = this.getRandomSpeed();
   }
 
@@ -26,17 +24,14 @@ class Enemy{
 
       //collison detection code
 
-      if (this.x < player.x + player.speed &&
-        this.x + player.speed > player.x &&
-        this.y < player.y + player.speed &&
-        this.y + player.speed > player.y) {
-          console.log("Game Over");
+      if (this.x + 97 >= player.x && this.x <= player.x + 65 && this.y+83 >=player.y && this.y<player.y+72) {
           player.x= 200;
           player.y=400;
-          lives--;
+            console.log("Game Over");
+
         }
   }
-  getRandomSpeed(min=40, max=300) {
+  getRandomSpeed(min=40, max=500) {
     return Math.random() * (max - min) + min;
   }
 
@@ -52,10 +47,8 @@ class Enemy{
 
 class Player{
   constructor(x = 200,y=400){
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
 
-    // The image/sprite for our enemies, this uses
+    // The image/sprite for our player, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/char-boy.png';
     this.x = x;
@@ -63,15 +56,13 @@ class Player{
     this.speed=42.75;
   }
 
-  // Update the enemy's position, required method for game
-  // Parameter: dt, a time delta between ticks
-  update(dt) {
-      // You should multiply any movement by the dt parameter
-      // which will ensure the game runs at the same speed for
-      // all computers.
+  update() {
+    if(this.y<42.75){
+      console.log("Won");
+    }
   }
 
-  // Draw the enemy on the screen, required method for game
+  // Draw the player on the screen, required method for game
   render() {
       ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
@@ -121,6 +112,5 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-
-    player.handleInput(allowedKeys[e.keyCode]);
+      player.handleInput(allowedKeys[e.keyCode]);
 });

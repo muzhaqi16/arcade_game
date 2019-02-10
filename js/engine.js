@@ -24,8 +24,10 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime;
 
-    score =0;
-    lives=3;
+    var score =0;
+    var lives=3;
+    var gameOver=false;
+
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
@@ -79,7 +81,7 @@ var Engine = (function(global) {
     function drawLives() {
         ctx.font = "16px Arial";
         ctx.fillStyle = "#0095DD";
-        ctx.fillText("Lives: "+lives, canvas.width-65, 20);
+        ctx.fillText("Lives: "+ lives, canvas.width-65, 20);
     }
 
     /* This function is called by main (our game loop) and itself calls all
