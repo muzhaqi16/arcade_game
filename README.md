@@ -14,4 +14,6 @@ This is a classic arcade game that you can play in your browser. It is pretty ba
 
 ## Contributing
 
-This game is based on [Udacity's](https://github.com/udacity/frontend-nanodegree-arcade-game) starter code for _all_ Udacity students. The functionality to play the game has been implemented by me.
+This game is based on [Udacity's](https://github.com/udacity/frontend-nanodegree-arcade-game) starter code for _all_ Udacity students.
+The functionality to play the game has been implemented by me.
+Feel free to copy and use any code that you might like.
