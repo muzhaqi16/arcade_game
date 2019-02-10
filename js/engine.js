@@ -24,6 +24,8 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime;
 
+    score =0;
+    lives=3;
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
@@ -51,7 +53,8 @@ var Engine = (function(global) {
          * for the next time this function is called.
          */
         lastTime = now;
-
+        drawScore();
+        drawLives();
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
@@ -66,6 +69,17 @@ var Engine = (function(global) {
         reset();
         lastTime = Date.now();
         main();
+    }
+    function drawScore() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText("Score: "+score, 8, 20);
+    }
+
+    function drawLives() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText("Lives: "+lives, canvas.width-65, 20);
     }
 
     /* This function is called by main (our game loop) and itself calls all

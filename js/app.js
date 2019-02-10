@@ -26,12 +26,14 @@ class Enemy{
 
       //collison detection code
 
-      if (this.x < player.x + 50 &&
-        this.x + 50 > player.x &&
-        this.y < player.y + 85 &&
-        this.y + 85 > player.y) {
-          console.log(`Player ${player.x} - ${player.y} \n Enemy ${this.x} - ${this.y}`)
+      if (this.x < player.x + player.speed &&
+        this.x + player.speed > player.x &&
+        this.y < player.y + player.speed &&
+        this.y + player.speed > player.y) {
           console.log("Game Over");
+          player.x= 200;
+          player.y=400;
+          lives--;
         }
   }
   getRandomSpeed(min=40, max=300) {
@@ -105,10 +107,9 @@ class Player{
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-//var allEnemies = [new Enemy(10,65), new Enemy(10,145),new Enemy(10,230)];
-var allEnemies = [new Enemy(10,65)];
+var allEnemies = [new Enemy(10,65), new Enemy(10,145),new Enemy(10,230)];
 // add the players default location
-var player = new Player(0,0);
+var player = new Player();
 
 
 // This listens for key presses and sends the keys to your
