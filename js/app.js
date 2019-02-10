@@ -7,6 +7,7 @@ class Enemy{
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
+    //get a random a speed every time the enemy is loaded
     this.speed = this.getRandomSpeed();
   }
 
@@ -23,7 +24,9 @@ class Enemy{
       }
 
       //collison detection code
-
+      //97->enemy width, 83 enemy height
+      //65 -> player width, 72 player height
+      // every time the player collides it's location is reset
       if (this.x + 97 >= player.x && this.x <= player.x + 65 && this.y+83 >=player.y && this.y<player.y+72) {
           player.x= 202;
           player.y=405;
@@ -58,10 +61,11 @@ class Player{
   }
 
   update() {
+    // check if the players location is on the water if so he wins and get 10 points and gets relocated
     if(this.y<=83){
-    this.x= 202;
-    this.y=405;
-    score+=10;
+      this.x= 202;
+      this.y=405;
+      score+=10;
     }
   }
 
@@ -74,7 +78,7 @@ class Player{
         switch(key){
           case 'up':
             if(this.y>0){
-              this.y-=83;
+              this.y-=83;//distance that player moves vertically
             }
             break;
           case 'down':
@@ -84,7 +88,7 @@ class Player{
             break;
           case 'left':
             if(this.x>0){
-              this.x-=101;
+              this.x-=101;//distance that player moves horizantally
             }
             break;
           case 'right':
