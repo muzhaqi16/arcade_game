@@ -23,11 +23,7 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime;
-
-    var score =0;
-    var lives=3;
-    var gameOver=false;
-
+        
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
