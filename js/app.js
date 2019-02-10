@@ -1,3 +1,5 @@
+/*jslint node: true */
+ "use strict";
 // Enemies our player must avoid
 class Enemy{
   constructor(x = 10,y=65){
@@ -63,7 +65,7 @@ class Player{
 
   update() {
     // check if the players location is on the water if so he wins and get 10 points and gets relocated
-    if(this.y<=83){
+    if(this.y<0){
       this.x= 202;
       this.y=405;
       score+=10;
@@ -107,7 +109,6 @@ class Player{
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 var enemyLocations = [65,145,230];
-console.log(enemyLocations);
 var allEnemies = [new Enemy(-101,enemyLocations[0]),new Enemy(-101,enemyLocations[1]),new Enemy(-101,enemyLocations[2])]
 // add the players default location
 var player = new Player();
