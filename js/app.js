@@ -8,7 +8,7 @@ class Enemy{
     this.x = x;
     this.y = y;
     //get a random a speed every time the enemy is loaded
-    this.speed = this.getRandomSpeed();
+    this.speed = this.getRandom();
   }
 
   // Update the enemy's position, required method for game
@@ -19,8 +19,9 @@ class Enemy{
       // all computers.
       this.x+=this.speed*dt;
       if(this.x>ctx.canvas.width){
-        this.x=0;
-        this.speed = this.getRandomSpeed();
+        this.x=-101;
+        this.y = enemyLocations[this.getRandom(0,2)];
+        this.speed = this.getRandom();
       }
 
       //collison detection code
@@ -36,8 +37,8 @@ class Enemy{
           }
         }
   }
-  getRandomSpeed(min=10, max=400) {
-    return Math.random() * (max - min) + min;
+  getRandom(min=10, max=400) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   // Draw the enemy on the screen, required method for game
@@ -105,7 +106,9 @@ class Player{
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var allEnemies = [new Enemy(10,65), new Enemy(10,145),new Enemy(10,230)];
+var enemyLocations = [65,145,230];
+console.log(enemyLocations);
+var allEnemies = [new Enemy(-101,enemyLocations[0]),new Enemy(-101,enemyLocations[1]),new Enemy(-101,enemyLocations[2])]
 // add the players default location
 var player = new Player();
 var score =0;
