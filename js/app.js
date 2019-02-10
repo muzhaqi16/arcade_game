@@ -30,6 +30,7 @@ class Enemy{
           --lives;
           if(!lives){
             console.log("Game Over");
+            allEnemies=[];
             lives=3;
           }
         }
@@ -59,7 +60,11 @@ class Player{
   }
 
   update() {
-
+    if(this.y<=83){
+    this.x= 202;
+    this.y=405;
+    score+=10;
+    }
   }
 
   // Draw the player on the screen, required method for game
