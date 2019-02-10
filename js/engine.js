@@ -23,7 +23,7 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime;
-        
+
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
@@ -161,6 +161,7 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
+         reset();
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
@@ -173,7 +174,12 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+      if(gameOver){
+        ctx.font = "72px Arial";
+        ctx.fillStyle = "white";
+        ctx.fillText("Game Over", 60, 300);
+        allEnemies=[];
+      }
     }
 
     /* Go ahead and load all of the images we know we're going to need to

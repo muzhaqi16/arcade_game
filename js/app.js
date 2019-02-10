@@ -29,9 +29,7 @@ class Enemy{
           player.y=405;
           --lives;
           if(!lives){
-            console.log("Game Over");
-            allEnemies=[];
-            lives=3;
+            gameOver=true;
           }
         }
   }
@@ -119,5 +117,7 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-      player.handleInput(allowedKeys[e.keyCode]);
+      if(!gameOver){
+        player.handleInput(allowedKeys[e.keyCode]);
+      }
 });
